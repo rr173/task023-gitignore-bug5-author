@@ -140,7 +140,7 @@ func buildRegex(glob string, anchored, dirOnly bool) (*regexp.Regexp, error) {
 		pattern = "(^|/)" + body + "/|^" + body + "$"
 	default:
 		// 基名规则：任意层级的某一段匹配。
-		pattern = "(^|/)" + body + "$"
+		pattern = "(^|/)" + body + "($|/)"
 	}
 	re, err := regexp.Compile(pattern)
 	if err != nil {
